@@ -1,3 +1,36 @@
+// Практика 2.25
+let keyStart = document.querySelector('#start'),
+budgetValue = document.querySelector('.budget-value'),
+daybudgetValue = document.querySelector('.daybudget-value'),
+levelValue = document.querySelector('.level-value'),
+expensesValue = document.querySelector('.expenses-value'),
+optionalexpensesValue = document.querySelector('.optionalexpenses-value'),
+incomeValue = document.querySelector('.income-value'),
+monthsavingsValue = document.querySelector('.monthsavings-value'),
+yearsavingsValue = document.querySelector('.yearsavings-value'),
+expencesItems = document.querySelectorAll('.expenses-item'),
+buttons = document.getElementsByTagName('button'),
+expenceBtn = buttons[0],
+optExpenceBtn = buttons[1],
+countBtn = buttons[2],
+optionalexpensesItems = document.querySelectorAll('.optionalexpenses-item');
+chooseIncome = document.querySelector('.choose-income'),
+savingsCheckbox = document.querySelector('.savings'),
+sum = document.querySelector('#sum'),
+percent = document.querySelector('#percent'),
+year = document.querySelector('.year-value'),
+month = document.querySelector('.month-value'),
+day = document.querySelector('.day-value');
+
+
+console.log(keyStart, monthsavingsValue, expencesItems, expencesItems[0]);
+console.log(buttons, expenceBtn, optExpenceBtn, countBtn);
+console.log(optionalexpensesItems);
+console.log(sum, day, percent);
+
+///////////////////////////////////////
+
+
 let money, time, savingsCheck;
 let chooseExpencesMas = [];
 
@@ -100,7 +133,7 @@ let appData = {
 };
 
 for (let appItems in appData) {
-    console.log('Our programm includes ' + appItems + ' ' + appData[appItems]);
+   // console.log('Our programm includes ' + appItems + ' ' + appData[appItems]);
 }
 
 //Variant 2
