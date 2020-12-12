@@ -1,0 +1,27 @@
+.box {
+    margin-top: 20px;
+    left: 20px;
+    top: 20px;
+    width: 400px;
+    height: 400px;
+    border: 2px solid red;
+}
+
+.square {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background-color: blue;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: yellow;
+    border: none;
+}
+
+.btn-block {
+    background-color: gray;
+    padding: 20px 20px;
+
+}
