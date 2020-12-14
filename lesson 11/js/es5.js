@@ -78,7 +78,7 @@
 // 4) указание конкретного контекста - call, apply, bind
 
 let btn = document.querySelector('button');
-btn .addEventListener('click', function() {
+btn.addEventListener('click', function() {
     console.log(this);
     this.style.backgroundColor = 'red';
     function showThis() {
@@ -88,3 +88,11 @@ btn .addEventListener('click', function() {
 })
 
 
+
+let age = document.getElementById('age');
+ 
+function showUser(surname, name) {
+         alert("Пользователь " + surname + " " + name + ", его возраст " + this.value);
+}
+ 
+showUser.apply(age, ["Горький","Максим"]);
