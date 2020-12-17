@@ -135,8 +135,29 @@ function modalWindow(start, overlay, close) {
  modalWindow(tabsButton[3], overlay, close);
 
 
+ class Options {
+    constructor (classList, text, height, width, bg, fontSize, textAlign){
+        this.height = height;
+        this.width = width;
+        this.bg = bg;
+        this.fontSize = fontSize;
+        this.textAlign = textAlign;
+        this.classList = classList;
+        this.text = text;
+    }
+    createDiv() {
+        let div = document.createElement('div');
+        div.className = this.classList;
+        document.body.append(div);
+        div.textContent = this.text;
+        div.style.cssText = `height: ${this.height} px; width: ${this.width} px; background: ${this.bg}; font-size: ${this.fontSize} px; text-align: ${this.textAlign}`;
+    }
+}
 
-
+const helloDiv = new Options('hello', 'Hello ', 300, 500, 'red', 40, 'center');
+helloDiv.createDiv();
+const byeDiv = new Options('bye', 'GoodBye', 300, 500, '#ADFF2F', 40, 'center');
+byeDiv.createDiv();
 });
 
 
