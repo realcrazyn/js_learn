@@ -96,3 +96,9 @@ function showUser(surname, name) {
 }
  
 showUser.apply(age, ["Горький","Максим"]);
+
+
+// let str = "1 shot, 5 beers, 2 shots, 1 glass of wine, 1 beer";
+// //let a = str.match(/\d/g);
+
+// console.log(eval(str.match(/\d/g).join('+')))
