@@ -102,65 +102,87 @@ window.addEventListener('DOMContentLoaded', function () {            //джем 
 
 
 
-// Modal
+    // Modal
 
-let more = document.querySelector('.more'),
-    overlay = document.querySelector('.overlay'),
-    close = document.querySelector  ('.popup-close'),
-    tabsButton = document.querySelectorAll('.description-btn');
+    let more = document.querySelector('.more'),
+        overlay = document.querySelector('.overlay'),
+        close = document.querySelector('.popup-close'),
+        tabsButton = document.querySelectorAll('.description-btn');
     console.log(tabsButton)
 
 
-function modalWindow(start, overlay, close) {
+    function modalWindow(start, overlay, close) {
 
-        start.addEventListener('click', function() {
-        overlay.style.display = 'block';
-        this.classList.add('more-splash');
-        document.body.style.overflow = 'hidden';
+        start.addEventListener('click', function () {
+            overlay.style.display = 'block';
+            this.classList.add('more-splash');
+            document.body.style.overflow = 'hidden';
+        });
+
+        close.addEventListener('click', function () {
+            overlay.style.display = 'none';
+            start.classList.remove('more-splash');
+            document.body.style.overflow = '';
+        });
+    }
+
+
+
+    modalWindow(more, overlay, close);
+    modalWindow(tabsButton[0], overlay, close);
+    modalWindow(tabsButton[1], overlay, close);
+    modalWindow(tabsButton[2], overlay, close);
+    modalWindow(tabsButton[3], overlay, close);
+
+
+    // Form
+
+    let message = {
+        loading: 'Loading...',
+        success: 'Thank you! We will contact you soon!',
+        failor: 'Something went wrong...'
+    };
+
+    let form = document.querySelector('.main-form'),
+        input = form.getElementsByTagName('input'),
+        statusMessage = document.createElement('div');
+
+    statusMessage.classList.add('status');
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        form.appendChild(statusMessage);
+
+        let request = new XMLHttpRequest();
+        request.open('POST', 'server.php');
+        request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+
+        let formData = new FormData(form);
+
+        let obj = {};
+        formData.forEach(function(value, key) {
+            obj[key] = value;
+        });
+        let json = JSON.stringify(obj);
+        request.send(json);
+
+        request.addEventListener('readystatechange', function () {
+            if (request.readyState < 4) {
+                statusMessage.innerHTML = message.loading;
+            } else if (request.readyState == 4 && request.status == 200) {
+                statusMessage.innerHTML = message.success;
+            } else {
+                statusMessage.innerHTML = message.failor;
+            };
+
+        });
+        for (let i = 0; i < input.length; i++) {
+            input[i].value = '';
+        }
+
     });
 
-    close.addEventListener('click', function() {
-        overlay.style.display = 'none';
-        start.classList.remove('more-splash');
-        document.body.style.overflow = '';
-    });
- }
-
-
-
- modalWindow(more, overlay, close);
- modalWindow(tabsButton[0], overlay, close);
- modalWindow(tabsButton[1], overlay, close);
- modalWindow(tabsButton[2], overlay, close);
- modalWindow(tabsButton[3], overlay, close);
-
-
- class Options {
-    constructor (classList, text, height, width, bg, fontSize, textAlign){
-        this.height = height;
-        this.width = width;
-        this.bg = bg;
-        this.fontSize = fontSize;
-        this.textAlign = textAlign;
-        this.classList = classList;
-        this.text = text;
-    }
-    createDiv() {
-        let div = document.createElement('div');
-        div.className = this.classList;
-        document.body.append(div);
-        div.textContent = this.text;
-        div.style.cssText = `height: ${this.height} px; width: ${this.width} px; background: ${this.bg}; font-size: ${this.fontSize} px; text-align: ${this.textAlign}`;
-    }
-}
-
-const helloDiv = new Options('hello', 'Hello ', 300, 500, 'red', 40, 'center');
-helloDiv.createDiv();
-const byeDiv = new Options('bye', 'GoodBye', 300, 500, '#ADFF2F', 40, 'center');
-byeDiv.createDiv();
 });
-
-
 
 
 
@@ -209,3 +231,30 @@ byeDiv.createDiv();
 
 //     tabsFunc('.info-header-tab', '.info-header',  '.info-tabcontent');
 // });
+
+
+
+
+//  class Options {
+//     constructor (classList, text, height, width, bg, fontSize, textAlign){
+//         this.height = height;
+//         this.width = width;
+//         this.bg = bg;
+//         this.fontSize = fontSize;
+//         this.textAlign = textAlign;
+//         this.classList = classList;
+//         this.text = text;
+//     }
+//     createDiv() {
+//         let div = document.createElement('div');
+//         div.className = this.classList;
+//         document.body.append(div);
+//         div.textContent = this.text;
+//         div.style.cssText = `height: ${this.height} px; width: ${this.width} px; background: ${this.bg}; font-size: ${this.fontSize} px; text-align: ${this.textAlign}`;
+//     }
+// }
+
+// const helloDiv = new Options('hello', 'Hello ', 300, 500, 'red', 40, 'center');
+// helloDiv.createDiv();
+// const byeDiv = new Options('bye', 'GoodBye', 300, 500, '#ADFF2F', 40, 'center');
+// byeDiv.createDiv();
