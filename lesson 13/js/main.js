@@ -92,16 +92,16 @@ inputRub.addEventListener('input', () => {
             request.onload = function() {
                 if(request.readyState === 4) {
                         if(request.status == 200) {
-                            resolve(this.response)
+                            resolve(this.response);
                         }
                         else {
                             reject();
                         
                         }
                 }
-            }
+            };
         });
-    };
+    }
 
     catchData()
     .then(response => {
@@ -110,7 +110,7 @@ inputRub.addEventListener('input', () => {
         inputUsd.value = inputRub.value / data.usd;
     })
     .then(() => console.log(5000))
-    .catch(() => inputUsd.value = "Что-то пошло не так")
+    .catch(() => inputUsd.value = "Что-то пошло не так");
 
 
 });
