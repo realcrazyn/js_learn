@@ -1,0 +1,16 @@
+.wrapper {
+    position: absolute;
+    top: 150px;
+    left: 300px;
+    width: 200px;
+}
+
+.form-signin-heading {
+    position: relative;
+    text-align: center;
+    margin: 10px;
+}
+
+.form-signin {
+    padding: 10px;
+}
