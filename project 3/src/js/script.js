@@ -1,3 +1,6 @@
+//require('es6-promise').polyfill();
+import 'nodelist-foreach-polyfill';
+require('formdata-polyfill');
 window.addEventListener('DOMContentLoaded', function () {            //джем загрузки ДОМ дерева без него не начинаем
     'use strict';
 
@@ -16,3 +19,4 @@ window.addEventListener('DOMContentLoaded', function () {            //джем 
     timer();
     modal();
 });
+
