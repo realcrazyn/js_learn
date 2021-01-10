@@ -1,0 +1,83 @@
+.tabs__content {
+	display: none; 
+}
+.tabs__content.active {
+	display: block; 
+}
+
+
+
+
+
+.progress-top,
+.progress-right,
+.progress-bottom,
+.progress-left {
+  position: fixed;
+  z-index: 999;
+
+  background-color: #ffc769;
+}
+
+.progress-top,
+.progress-bottom {
+  height: 0.35em;
+}
+
+.progress-right,
+.progress-left {
+  width: 0.35em;
+}
+
+.progress-top,
+.progress-right {
+  top: 0;
+}
+
+.progress-top,
+.progress-left {
+  left: 0;
+}
+
+.progress-bottom,
+.progress-left {
+  bottom: 0;
+}
+
+.progress-bottom,
+.progress-right {
+  right: 0;
+}
+
+
+body {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 700;
+  color: #fff;
+  background-color: #000;
+}
+
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  
+  font-size: 3em;
+}
+
+
+main {
+  height: 500vh;
+}
+
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    
+    font-size: 3em;  
+}
